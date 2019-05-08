@@ -1,0 +1,22 @@
+import RPi.GPIO as GPIO
+import time
+
+GPIO.setmode(GPIO.BOARD)
+
+GPIO.setup(10, GPIO.OUT)
+
+try:
+    while 1:
+
+        GPIO.output(10, GPIO.HIGH)
+        print("on")
+
+        time.sleep(1.0)
+
+        GPIO.output(10, GPIO.LOW)
+        print("off")
+
+        time.sleep(1.0)
+except KeyboardInterrupt:
+    GPIO.cleanup()
+    print("stopped")
